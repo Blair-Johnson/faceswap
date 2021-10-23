@@ -20,6 +20,12 @@
 #     OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
 #     USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+# ----------------------------------------------------------------
+# Modified Oct. 2021 by Blair Johnson
+# 
+# Updated to integrate into HackGT 2021 face anonymization project
+# ----------------------------------------------------------------
+
 """
 This is the code behind the Switching Eds blog post:
 
@@ -49,7 +55,7 @@ import numpy
 
 import sys
 
-PREDICTOR_PATH = "/home/matt/dlib-18.16/shape_predictor_68_face_landmarks.dat"
+PREDICTOR_PATH = "./shape_predictor_68_face_landmarks.dat"
 SCALE_FACTOR = 1 
 FEATHER_AMOUNT = 11
 
