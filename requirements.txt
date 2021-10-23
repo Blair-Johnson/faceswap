@@ -1,0 +1,6 @@
+dlib==19.22.1
+facenet_pytorch==2.5.2
+matplotlib==3.3.4
+numpy==1.19.5
+opencv_python==4.5.4.58
+Pillow==8.4.0
