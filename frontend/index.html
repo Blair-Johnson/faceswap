@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" /> -->
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+  <script> 
+        const uploadFile = (file) => {
+            console.log("Uploading")
+            // add file to FormData object
+            const fd = new FormData();
+            fd.append('img', file);
+
+            // send `POST` request
+            fetch('https://httpbin.org/anything', {
+                method: 'POST',
+                body: fd
+            })
+            .then(res => res.json())
+            .then(json => {
+              console.log(json.files.img)
+              document.getElementById('received')
+                .setAttribute(
+                    'src', json.files.img
+                );
+            })
+            .catch(err => console.error(err));
+        }
+       function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result)
+                        .width(360);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+                uploadFile(input.files[0]);
+            }
+        }
+
+
+  </script>
+<meta charset=utf-8 />
+<title>JS Bin</title>
+<!--[if IE]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+    <div class="overlay">
+    <div id="pageintro" class="hoc clear"> 
+      <!-- ################################################################################################ -->
+      <article>
+  <h3 class="heading"> AI Image Anonimyzer Tool</h3>
+</br>
+  <input id="inputloaded" style="margin: auto;    border: 1px solid #ccc;
+    display: block;
+    padding: 6px 12px;
+    cursor: pointer;" type='file' onchange="readURL(this);" />
+    <div id="holder" style="display: inline-flex;">
+    <figure style="margin-right: 100px;"><img id="blah" style="width:360px; margin-top:100px; margin-bottom: 50px" src="noimg.png" alt="your image" />
+      <figcaption>Original Image</figcaption>
+    </figure>
+    <figure style="margin-left: 100px;">
+    <img id="received" style="width:360px; margin-top:100px; margin-bottom: 50px" src="noimg.png" alt="your received image" />
+          <figcaption>Anonimyzed Image</figcaption>
+    </figure>
+  </div>
+</article>
+  
+
+</div></div>
+
+<!--     <input type="submit" onclick="uploadFile();" value="OCR" /> -->
+</body>
+</html>
