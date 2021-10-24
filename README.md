@@ -1,3 +1,9 @@
+# HackGT 8: Face Anonymization Project
+## Synthetic Face Candidate Selection and Stitching
+This is a module of the Face Anonymization project that identifies the closest
+synthetic face to a target and stitches its features over those of the target.
+
+## Inhereted ReadMe from the forked faceswap project
 This is the code behind the [Switching Eds blog post](http://matthewearl.github.io/2015/07/28/switching-eds-with-python/).
 
 See the link for an explanation of the code.
